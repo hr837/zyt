@@ -1,16 +1,66 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	}
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "uni-app"
+      }
+    },
+    {
+      "path": "pages/index/information",
+      "style": {
+        "navigationBarTitleText": "信息大厅"
+      }
+    },
+    {
+      "path": "pages/index/goods-market",
+      "style": {
+        "navigationBarTitleText": "物资行情"
+      }
+    },
+    {
+      "path": "pages/publish/index",
+      "style": {
+        "navigationBarTitleText": "信息发布"
+      }
+    }
+  ],
+
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#4687FF",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/tabbar/main-g.png",
+        "selectedIconPath": "static/images/tabbar/main.png"
+      },
+      {
+        "pagePath": "pages/index/information",
+        "text": "信息大厅",
+        "iconPath": "static/images/tabbar/info-g.png",
+        "selectedIconPath": "static/images/tabbar/info.png"
+      },
+      {
+        "pagePath": "pages/publish/index",
+        "text": "发布需求",
+        "iconPath": "static/images/tabbar/publish-g.png",
+        "selectedIconPath": "static/images/tabbar/publish.png"
+      },
+      {
+        "pagePath": "pages/index/goods-market",
+        "text": "物资行情",
+        "iconPath": "static/images/tabbar/trend-g.png",
+        "selectedIconPath": "static/images/tabbar/trend.png"
+      }
+    ]
+  }
 }

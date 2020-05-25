@@ -1,19 +1,20 @@
 <script lang="ts">
-    import Vue from 'vue';
-    export default Vue.extend({
-        mpType: 'app',
-        onLaunch() {
-            console.log('App Launch')
-        },
-        onShow() {
-            console.log('App Show')
-        },
-        onHide() {
-            console.log('App Hide')
-        }
-    });
+import { Vue, Component } from "vue-property-decorator";
+
+export default class App extends Vue {
+  static mpType = "app";
+  onLaunch() {
+    console.log("App Launch");
+  }
+  onShow() {
+    console.log("App Show");
+  }
+  onHide() {
+    console.log("App Hide");
+  }
+}
 </script>
 
 <style>
-    /*每个页面公共css */
+/*每个页面公共css */
 </style>

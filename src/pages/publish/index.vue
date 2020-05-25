@@ -1,0 +1,8 @@
+<template>
+  <view>发布页面</view>
+</template>
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+@Component
+export default class PublishIndex extends Vue {}
+</script>
