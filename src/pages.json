@@ -24,6 +24,12 @@
       "style": {
         "navigationBarTitleText": "信息发布"
       }
+    },
+    {
+      "path": "pages/index/my",
+      "style": {
+        "navigationBarTitleText": "我的"
+      }
     }
   ],
 
@@ -60,6 +66,12 @@
         "text": "物资行情",
         "iconPath": "static/images/tabbar/trend-g.png",
         "selectedIconPath": "static/images/tabbar/trend.png"
+      },
+      {
+        "pagePath": "pages/index/my",
+        "text": "我的",
+        "iconPath": "static/images/tabbar/user-g.png",
+        "selectedIconPath": "static/images/tabbar/user.png"
       }
     ]
   }
