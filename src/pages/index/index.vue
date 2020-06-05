@@ -3,20 +3,17 @@
   <view class="page index">
     <!-- banner -->
     <view class="page-section swiper-container">
-      <swiper class="swiper" indicator-dots autoplay circular>
-        <swiper-item>
+      <swiper
+        class="swiper"
+        indicator-dots
+        autoplay
+        circular
+        indicator-color="rgba(255,255,255,0.47)"
+        indicator-active-color="rgba(255,255,255,1)"
+      >
+        <swiper-item v-for="item of bannerList" :key="item.id">
           <view class="swiper-item">
-            <image src="@/static/images/banner/banner_1.png" class="banner-img" mode="aspectFit" />
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="swiper-item">
-            <image src="@/static/images/banner/banner_2.png" class="banner-img" mode="aspectFit" />
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="swiper-item">
-            <image src="@/static/images/banner/banner_3.png" class="banner-img" mode="aspectFit" />
+            <image :src="item.src" class="banner-img" mode="aspectFit" />
           </view>
         </swiper-item>
       </swiper>
@@ -34,15 +31,15 @@
     <view class="page-section sys-info-container box-shadow">
       <view class="sys-info-container__item sys-count">
         <view class="sys-count__item">
-          <view class="number">340968</view>
+          <view class="number">{{ sysCount.totalVisits }}</view>
           <view class="text">总访问量</view>
         </view>
         <view class="sys-count__item">
-          <view class="number">340968</view>
+          <view class="number">{{ sysCount.totalDemands }}</view>
           <view class="text">总需求量</view>
         </view>
         <view class="sys-count__item">
-          <view class="number">340968</view>
+          <view class="number">{{ sysCount.totalHighSupply }}</view>
           <view class="text">优质供应商</view>
         </view>
       </view>
@@ -56,6 +53,10 @@
   import { Vue, Component } from "vue-property-decorator"
   import uniGrid from "@dcloudio/uni-ui/lib/uni-grid/uni-grid.vue"
   import uniGridItem from "@dcloudio/uni-ui/lib/uni-grid-item/uni-grid-item.vue"
+  import { WxBusinessService } from "@/services/wx.business.service"
+  import { RequestParams } from "@/core/http"
+  import { SysCount, BannerProps } from "../../config/types/business.type"
+  import CommonService from "@/utils/common"
 
   @Component({
     components: {
@@ -65,6 +66,11 @@
   })
   export default class Index extends Vue {
     private title = "hello"
+    private sysCount: SysCount = {
+      totalVisits: 0,
+      totalHighSupply: 0,
+      totalDemands: 0,
+    }
 
     /** 快捷入口配置 */
     private quickEntrySetting = [
@@ -86,7 +92,18 @@
       },
     ]
 
-    public mounted() {}
+    private bannerList: BannerProps[] = []
+
+    private wxBusinessService = new WxBusinessService()
+
+    public mounted() {
+      this.wxBusinessService.getHomeStatistics(new RequestParams()).subscribe((data) => (this.sysCount = data))
+      this.wxBusinessService.getHomeBannerList(new RequestParams()).subscribe((data) => {
+        const result = data.result
+        result.forEach((item) => (item.src = CommonService.getAttachUrl(item.picturePath)))
+        this.bannerList = result
+      })
+    }
   }
 </script>
 

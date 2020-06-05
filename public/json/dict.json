@@ -1,0 +1,38 @@
+{
+  "isExport": [
+    {
+      "value": "0",
+      "text": "内销",
+      "title": "是否出口"
+    },
+    {
+      "value": "1",
+      "text": "出口",
+      "title": "是否出口"
+    }
+  ],
+  "isTax": [
+    {
+      "value": "0",
+      "text": "不含税",
+      "title": "是否含税"
+    },
+    {
+      "value": "1",
+      "text": "含税",
+      "title": "是否含税"
+    }
+  ],
+  "yesNo": [
+    {
+      "value": "0",
+      "text": "否",
+      "title": "是否"
+    },
+    {
+      "value": "1",
+      "text": "是",
+      "title": "是否"
+    }
+  ]
+}
