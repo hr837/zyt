@@ -45,7 +45,7 @@
     "@dcloudio/uni-quickapp-webview": "^2.0.0-27920200527001",
     "@dcloudio/uni-stat": "^2.0.0-27920200527001",
     "@dcloudio/uni-ui": "^1.2.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "flyio": "^0.6.2",
     "lodash.round": "^4.0.4",
